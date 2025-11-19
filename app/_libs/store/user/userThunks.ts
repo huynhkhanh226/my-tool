@@ -20,6 +20,9 @@ export type Args = {
   onError?: (err: string) => void;
 };
 
+// Gọi trực tiếp action -> có khả năng lội API key
+// Vì vậy nên gọi thông qua
+
 export const fetchUserProfile = createAsyncThunk<UserProfile, Args, ThunkAPIConfig<string>>(
   USER_GET_PROFILE,
   async (args, thunkAPI) => {

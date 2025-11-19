@@ -1,10 +1,10 @@
 // lib/actions/getProfile.ts
 'use server';
 
-import { serverFetchWithAuth } from '../../api/serverFetchWithAuth';
+import { fetchWithAuth } from '../../api/fetchWithAuth';
 
 export async function getProfile() {
-  const res = await serverFetchWithAuth(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/user/info`, {
+  const res = await fetchWithAuth(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/user/info`, {
     method: "POST",
     body: JSON.stringify({
         email: "admin@gmail.com"

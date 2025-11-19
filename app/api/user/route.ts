@@ -1,9 +1,9 @@
 // app/api/user/me/route.ts
-import { serverFetchWithAuth } from '@/app/_libs/api/serverFetchWithAuth';
+import { fetchWithAuth } from '@/app/_libs/api/fetchWithAuth';
 import { NextResponse } from 'next/server';
 export async function POST() {
   try {
-    const res = await serverFetchWithAuth(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/user/info`, {
+    const res = await fetchWithAuth(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/user/info`, {
       method: "POST"
     });
     const data = await res.json();

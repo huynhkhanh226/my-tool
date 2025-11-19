@@ -3,10 +3,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import "./_styles/globals.scss"
 import localFont from 'next/font/local'
-import { TemplateProvider } from "./providers";
-import Header from "./_components/user/Header";
-import ScrollToTop from "./_components/user/ScrollToTop";
-import { ReduxProvider } from "./_libs/store/ReduxProvider";
+import { TemplateProvider } from "./_libs/providers/CustomThemeProvider";
+import { ReduxProvider } from "./_libs/providers/ReduxProvider";
+import { AuthProvider } from "./_libs/providers/AuthContext";
 
 // Add fonts
 const geistSans = Geist({
@@ -20,9 +19,9 @@ const geistMono = Geist_Mono({
 });
 
 // Local font
-const myFont = localFont({
-  src: './my-font.woff2',
-})
+// const myFont = localFont({
+//   src: './my-font.woff2',
+// })
 
 // Add metadata
 export const metadata: Metadata = {
@@ -38,16 +37,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased ${myFont.className}`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <TemplateProvider>
-          <ReduxProvider>
-            <Header />
-            {children}
-            {/* <Footer /> */}
-            <ScrollToTop />
-          </ReduxProvider>
-        </TemplateProvider>
+        <ReduxProvider>
+          <AuthProvider>
+            <TemplateProvider>
+              <ReduxProvider>
+                {children}
+              </ReduxProvider>
+            </TemplateProvider>
+          </AuthProvider>
+        </ReduxProvider>
+
       </body>
     </html>
   );

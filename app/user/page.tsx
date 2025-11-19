@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { LogoutButton } from "./_components/LogoutButton";
+import { LogoutButton } from "../_components/LogoutButton";
 
 export const metadata: Metadata = {
   title: "Free Next.js Template for Startup and SaaS",
@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   // other metadata
 };
 
-export default function Home() {
+export default function User() {
   return (
     <>
       <h1>This is Content</h1>

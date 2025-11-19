@@ -6,10 +6,9 @@ export async function proxy(req: NextRequest) {
   if (["/signin", "/signup"].includes(pathname)) {
     return NextResponse.next();
   }
-
-  const accessToken = req.cookies.get("accessToken")?.value;
+  const mySession = req.cookies.get("my_session")?.value;
   // ✅ Nếu có accessToken → dùng luôn
-  if (accessToken) {
+  if (mySession) {
     return NextResponse.next();
   }
 
@@ -22,17 +21,6 @@ export async function proxy(req: NextRequest) {
 // middleware.ts
 export const config = {
   matcher: [
-    "/dashboard/:path*",
-    "/client/profile",
-    "/client/openrouter/conversion-state",
-    "/client/openrouter/image-generator",
-    "/client/openrouter/file-input",
-    "/client/openrouter/reasoning",
-    "/client/openai/chat-completions",
-    "/client/openai/image-generator",
-    "/client/openai/image-editor",
-    "/client/openai/audio-generator",
-    "/client/openai/file-input",
-    "/client/openai/reasoning",
+    "/user",
   ], // Chỉ áp dụng cho những route này
 };

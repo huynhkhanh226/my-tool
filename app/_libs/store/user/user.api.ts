@@ -1,8 +1,8 @@
 'use server';
 
-import { serverFetchWithAuth } from "../../api/serverFetchWithAuth";
+import { fetchWithAuth } from "../../api/fetchWithAuth";
 export const getUserProfile = async () => {
-   const res = await serverFetchWithAuth(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/user/info`, {
+   const res = await fetchWithAuth(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/user/info`, {
       method: "POST",
       credentials: "include", // Gửi cookie
       body: JSON.stringify({
