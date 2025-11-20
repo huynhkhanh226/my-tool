@@ -1,8 +1,6 @@
-'use server';
-
 import { fetchWithAuth } from "../../api/fetchWithAuth";
 export const getUserProfile = async () => {
-   const res = await fetchWithAuth(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/user/info`, {
+   const res = await fetchWithAuth(`/api/user`, {
       method: "POST",
       credentials: "include", // Gửi cookie
       body: JSON.stringify({

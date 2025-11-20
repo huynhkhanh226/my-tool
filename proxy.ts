@@ -21,6 +21,7 @@ export async function proxy(req: NextRequest) {
 // middleware.ts
 export const config = {
   matcher: [
+    "/",
     "/user",
   ], // Chỉ áp dụng cho những route này
 };

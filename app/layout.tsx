@@ -6,6 +6,12 @@ import localFont from 'next/font/local'
 import { TemplateProvider } from "./_libs/providers/CustomThemeProvider";
 import { ReduxProvider } from "./_libs/providers/ReduxProvider";
 import { AuthProvider } from "./_libs/providers/AuthContext";
+import Sidebar from "./_components/layout/Sidebar";
+import Header from "./_components/layout/Header";
+
+
+import { Inter } from 'next/font/google'
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
 // Add fonts
 const geistSans = Geist({
@@ -37,14 +43,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`antialiased bg-white text-black font-sans`}
       >
         <ReduxProvider>
           <AuthProvider>
             <TemplateProvider>
-              <ReduxProvider>
+                <Sidebar />
+                <Header />
                 {children}
-              </ReduxProvider>
             </TemplateProvider>
           </AuthProvider>
         </ReduxProvider>
