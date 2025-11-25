@@ -1,16 +1,16 @@
 // utils/fetchWithAuth.ts
-type FetchWithAuthOptions = RequestInit & {
-  headers?: Record<string, string>; // custom headers
-  retry?: number; // số lần retry
-};
+export interface FetchWithAuthOptions extends RequestInit {
+  retry?: number;
+  headers?: Record<string, string>;
+}
 
-export async function fetchWithAuth(
+export async function fetchWithAuth<T = unknown>(
   url: string,
-  options: FetchWithAuthOptions = {}
-): Promise<any> {
+  options: FetchWithAuthOptions = {},
+): Promise<T | null | Response> {
+  // null khi 401, Response khi không JSON
   const { retry = 3, headers: customHeaders, ...rest } = options;
 
-  // Dùng Headers class để tránh lỗi TS khi merge
   const headers = new Headers({
     "Content-Type": "application/json",
   });
@@ -24,7 +24,7 @@ export async function fetchWithAuth(
   const fetchOptions: RequestInit = {
     ...rest,
     headers,
-    credentials: "same-origin", // cookie tự attach cho same-origin
+    credentials: "same-origin",
   };
 
   let attempt = 0;
@@ -38,7 +38,7 @@ export async function fetchWithAuth(
       // 401 → session hết hạn
       if (res.status === 401) {
         console.warn("Session expired. Redirecting to login...");
-        window.location.href = "/login"; // hoặc mở modal login
+        window.location.href = "/login";
         return null;
       }
 
@@ -51,16 +51,17 @@ export async function fetchWithAuth(
       // Nếu content-type là JSON → trả về JSON
       const contentType = res.headers.get("content-type");
       if (contentType && contentType.includes("application/json")) {
-        return await res.json();
+        return (await res.json()) as T; // ⚡ TypeScript biết kiểu trả về
       }
 
-      return res; // raw response
+      return res; // raw Response nếu không JSON
     } catch (err) {
-      // Network errors
       console.warn(`Network error, retrying ${attempt}/${retry}...`, err);
       if (attempt >= retry) throw err;
     }
   }
+
+  return null; // fallback nếu retry hết
 }
 
 // const data = await fetchWithAuth("/api/me");

@@ -1,7 +1,7 @@
 // app/api/auth/callback/route.ts
 import { NextResponse } from "next/server";
 
-export async function GET(req: Request) {
+export async function GET(_req: Request) {
   // Lấy user info từ IdP tại đây...
   const user = { id: "123", name: "John Doe" };
 

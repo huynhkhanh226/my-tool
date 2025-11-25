@@ -30,11 +30,11 @@ export const fetchUserProfile = createAsyncThunk<UserProfile, Args, ThunkAPIConf
       const data = await getUserProfile();
       args.onSuccess?.(data);
       return data.user || null;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
-      const msg = err?.message || 'Lỗi không xác định';
+      const msg = err?.message || "Lỗi không xác định";
       args.onError?.(msg);
       return thunkAPI.rejectWithValue(msg);
     }
-  }
+  },
 );

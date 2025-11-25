@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   /* config options here */
   //  cacheComponents: true,
   sassOptions: {
-    implementation: 'sass-embedded',
+    implementation: "sass-embedded",
   },
 };
 

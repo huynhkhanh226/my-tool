@@ -1,28 +1,26 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+// import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import "./_styles/globals.scss"
-import localFont from 'next/font/local'
+import "./_styles/globals.scss";
 import { TemplateProvider } from "./_libs/providers/CustomThemeProvider";
 import { ReduxProvider } from "./_libs/providers/ReduxProvider";
 import { AuthProvider } from "./_libs/providers/AuthContext";
 import Sidebar from "./_components/layout/Sidebar";
 import Header from "./_components/layout/Header";
 
+// import { Inter } from "next/font/google";
+// const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
-import { Inter } from 'next/font/google'
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
+// // Add fonts
+// const geistSans = Geist({
+//   variable: "--font-geist-sans",
+//   subsets: ["latin"],
+// });
 
-// Add fonts
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// const geistMono = Geist_Mono({
+//   variable: "--font-geist-mono",
+//   subsets: ["latin"],
+// });
 
 // Local font
 // const myFont = localFont({
@@ -42,19 +40,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`antialiased bg-white text-black font-sans`}
-      >
+      <body className={`antialiased bg-white text-black font-sans`}>
         <ReduxProvider>
           <AuthProvider>
             <TemplateProvider>
-                <Sidebar />
-                <Header />
-                {children}
+              <Sidebar />
+              <Header />
+              {children}
             </TemplateProvider>
           </AuthProvider>
         </ReduxProvider>
-
       </body>
     </html>
   );

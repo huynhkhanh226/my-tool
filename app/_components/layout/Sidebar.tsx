@@ -6,16 +6,16 @@ import { Menu, X } from "lucide-react";
 const groups = [
   {
     title: "Products",
-    items: ["ChatGPT", "API", "GPT Store", "Teams", "Enterprise"]
+    items: ["ChatGPT", "API", "GPT Store", "Teams", "Enterprise"],
   },
   {
     title: "Research",
-    items: ["Overview", "Publications", "Safety"]
+    items: ["Overview", "Publications", "Safety"],
   },
   {
     title: "Company",
-    items: ["About", "Careers", "Newsroom", "Blog"]
-  }
+    items: ["About", "Careers", "Newsroom", "Blog"],
+  },
 ];
 
 export default function Sidebar() {
@@ -29,17 +29,11 @@ export default function Sidebar() {
 
         {groups.map((group) => (
           <div key={group.title}>
-            <h4 className="text-xs uppercase text-gray-400 mb-3 tracking-wider">
-              {group.title}
-            </h4>
+            <h4 className="text-xs uppercase text-gray-400 mb-3 tracking-wider">{group.title}</h4>
 
             <div className="flex flex-col gap-2">
               {group.items.map((item) => (
-                <a
-                  key={item}
-                  href="#"
-                  className="text-gray-700 hover:text-black transition"
-                >
+                <a key={item} href="#" className="text-gray-700 hover:text-black transition">
                   {item}
                 </a>
               ))}
@@ -49,10 +43,7 @@ export default function Sidebar() {
       </aside>
 
       {/* Mobile hamburger */}
-      <button
-        className="absolute lg:hidden top-4 left-4 z-50"
-        onClick={() => setOpen(true)}
-      >
+      <button className="absolute lg:hidden top-4 left-4 z-50" onClick={() => setOpen(true)}>
         <Menu size={28} />
       </button>
 
@@ -80,17 +71,11 @@ export default function Sidebar() {
         <div className="px-7 py-6 flex flex-col gap-8">
           {groups.map((group) => (
             <div key={group.title}>
-              <h4 className="text-xs uppercase text-gray-400 mb-2 tracking-wider">
-                {group.title}
-              </h4>
+              <h4 className="text-xs uppercase text-gray-400 mb-2 tracking-wider">{group.title}</h4>
 
               <div className="flex flex-col gap-2">
                 {group.items.map((item) => (
-                  <a
-                    key={item}
-                    href="#"
-                    className="text-gray-700 hover:text-black transition"
-                  >
+                  <a key={item} href="#" className="text-gray-700 hover:text-black transition">
                     {item}
                   </a>
                 ))}

@@ -36,13 +36,7 @@ const ErrorPage = () => {
                       stroke="url(#paint1_linear_116:1137)"
                       strokeWidth="3"
                     />
-                    <circle
-                      opacity="0.8"
-                      cx="227.5"
-                      cy="81.5"
-                      r="68.5"
-                      fill="#4A6CF7"
-                    />
+                    <circle opacity="0.8" cx="227.5" cy="81.5" r="68.5" fill="#4A6CF7" />
                     <mask
                       id="mask0_116:1137"
                       style={{ maskType: "alpha" }}
@@ -52,13 +46,7 @@ const ErrorPage = () => {
                       width="137"
                       height="137"
                     >
-                      <circle
-                        opacity="0.8"
-                        cx="227.5"
-                        cy="81.5"
-                        r="68.5"
-                        fill="#4A6CF7"
-                      />
+                      <circle opacity="0.8" cx="227.5" cy="81.5" r="68.5" fill="#4A6CF7" />
                     </mask>
                     <g mask="url(#mask0_116:1137)">
                       <circle
@@ -69,12 +57,7 @@ const ErrorPage = () => {
                         fill="url(#paint2_radial_116:1137)"
                       />
                       <g opacity="0.8" filter="url(#filter0_f_116:1137)">
-                        <circle
-                          cx="233.543"
-                          cy="49.2645"
-                          r="28.2059"
-                          fill="white"
-                        />
+                        <circle cx="233.543" cy="49.2645" r="28.2059" fill="white" />
                       </g>
                     </g>
                     <path
@@ -145,8 +128,8 @@ const ErrorPage = () => {
                   Sorry, the page can’t be found
                 </h3>
                 <p className="mb-10 text-base font-medium leading-relaxed text-body-color sm:text-lg sm:leading-relaxed">
-                  The page you were looking for appears to have been moved,
-                  deleted or does not exist.
+                  The page you were looking for appears to have been moved, deleted or does not
+                  exist.
                 </p>
                 <Link
                   href="/"

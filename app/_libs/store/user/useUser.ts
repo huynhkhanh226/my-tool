@@ -1,5 +1,5 @@
-import { useAppSelector } from '../hooks';
-import { selectUser, selectUserLoading, selectUserError } from '.';
+import { useAppSelector } from "../hooks";
+import { selectUser, selectUserLoading, selectUserError } from ".";
 
 export const useUser = () => {
   const user = useAppSelector(selectUser);

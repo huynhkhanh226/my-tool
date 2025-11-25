@@ -1,6 +1,6 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from "next/server";
 
-export async function POST(req: NextRequest) {
+export async function POST(_req: NextRequest) {
   // const body = await req.json();
 
   // const backendRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/login`, {

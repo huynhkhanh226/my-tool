@@ -1,8 +1,6 @@
 import { Metadata } from "next";
-import { LogoutButton } from "./_components/LogoutButton";
 import PageContainer from "./_components/layout/PageContainer";
 import Hero from "./_components/layout/Hero";
-import UpdatesSection from "./_components/layout/UpdatesSection";
 import FadeIn from "./_components/layout/FadeIn";
 import { LoginButton } from "./_components/LoginButton";
 

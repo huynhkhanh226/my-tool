@@ -82,10 +82,7 @@ const SignupPage = () => {
                 </div>
                 <form>
                   <div className="mb-8">
-                    <label
-                      htmlFor="name"
-                      className="text-dark mb-3 block text-sm dark:text-white"
-                    >
+                    <label htmlFor="name" className="text-dark mb-3 block text-sm dark:text-white">
                       {" "}
                       Full Name{" "}
                     </label>
@@ -97,10 +94,7 @@ const SignupPage = () => {
                     />
                   </div>
                   <div className="mb-8">
-                    <label
-                      htmlFor="email"
-                      className="text-dark mb-3 block text-sm dark:text-white"
-                    >
+                    <label htmlFor="email" className="text-dark mb-3 block text-sm dark:text-white">
                       {" "}
                       Work Email{" "}
                     </label>
@@ -132,11 +126,7 @@ const SignupPage = () => {
                       className="text-body-color flex cursor-pointer text-sm font-medium select-none"
                     >
                       <div className="relative">
-                        <input
-                          type="checkbox"
-                          id="checkboxLabel"
-                          className="sr-only"
-                        />
+                        <input type="checkbox" id="checkboxLabel" className="sr-only" />
                         <div className="box border-body-color/20 mt-1 mr-4 flex h-5 w-5 items-center justify-center rounded-sm border dark:border-white/10">
                           <span className="opacity-0">
                             <svg

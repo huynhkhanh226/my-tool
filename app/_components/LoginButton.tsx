@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 
 export function LoginButton() {
   const router = useRouter();
@@ -11,7 +11,7 @@ export function LoginButton() {
 
     // Optional: điều hướng về trang login
     // window.location.href = "/login";
-    router.push('/user');
+    router.push("/user");
   };
 
   return <button onClick={handleLogin}>Login</button>;

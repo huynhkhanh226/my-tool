@@ -6,7 +6,9 @@
     "dev": "cross-env NODE_ENV=development next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
+    "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
+    "format": "prettier . --write"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.10.1",
@@ -25,8 +27,13 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "eslint": "^9",
+    "@typescript-eslint/eslint-plugin": "^8.48.0",
+    "@typescript-eslint/parser": "^8.48.0",
+    "eslint": "^9.39.1",
     "eslint-config-next": "16.0.3",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "prettier": "^3.6.2",
     "sass": "^1.94.1",
     "sass-embedded": "^1.93.3",
     "tailwindcss": "^4",

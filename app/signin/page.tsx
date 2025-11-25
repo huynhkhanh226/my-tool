@@ -55,10 +55,7 @@ const SigninPage = () => {
                 <LoginButton />
                 <form onSubmit={handleSubmit}>
                   <div className="mb-8">
-                    <label
-                      htmlFor="email"
-                      className="text-dark mb-3 block text-sm dark:text-white"
-                    >
+                    <label htmlFor="email" className="text-dark mb-3 block text-sm dark:text-white">
                       Email
                     </label>
                     <input
@@ -91,11 +88,7 @@ const SigninPage = () => {
                         className="text-body-color flex cursor-pointer items-center text-sm font-medium select-none"
                       >
                         <div className="relative">
-                          <input
-                            type="checkbox"
-                            id="checkboxLabel"
-                            className="sr-only"
-                          />
+                          <input type="checkbox" id="checkboxLabel" className="sr-only" />
                           <div className="box border-body-color/20 mr-4 flex h-5 w-5 items-center justify-center rounded-sm border dark:border-white/10">
                             <span className="opacity-0">
                               <svg
@@ -119,10 +112,7 @@ const SigninPage = () => {
                       </label>
                     </div>
                     <div>
-                      <a
-                        href="#0"
-                        className="text-primary text-sm font-medium hover:underline"
-                      >
+                      <a href="#0" className="text-primary text-sm font-medium hover:underline">
                         Quên mật khẩu?
                       </a>
                     </div>

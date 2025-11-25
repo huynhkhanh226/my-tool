@@ -1,5 +1,5 @@
-"use client"
-import { Metadata } from "next";
+"use client";
+// import { Metadata } from "next";
 import { LogoutButton } from "../_components/LogoutButton";
 import { useAuth } from "../_libs/providers/AuthContext";
 import FadeIn from "../_components/layout/FadeIn";

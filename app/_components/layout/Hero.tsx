@@ -6,25 +6,32 @@ export default function Hero() {
       </h1>
 
       <p className="mt-6 text-lg text-gray-600 max-w-2xl">
-        We build general-purpose artificial intelligence systems and develop tools that help people be more productive.
+        We build general-purpose artificial intelligence systems and develop tools that help people
+        be more productive.
       </p>
       <p className="mt-6 text-lg text-gray-600 max-w-2xl">
-        We build general-purpose artificial intelligence systems and develop tools that help people be more productive.
+        We build general-purpose artificial intelligence systems and develop tools that help people
+        be more productive.
       </p>
       <p className="mt-6 text-lg text-gray-600 max-w-2xl">
-        We build general-purpose artificial intelligence systems and develop tools that help people be more productive.
+        We build general-purpose artificial intelligence systems and develop tools that help people
+        be more productive.
       </p>
       <p className="mt-6 text-lg text-gray-600 max-w-2xl">
-        We build general-purpose artificial intelligence systems and develop tools that help people be more productive.
+        We build general-purpose artificial intelligence systems and develop tools that help people
+        be more productive.
       </p>
       <p className="mt-6 text-lg text-gray-600 max-w-2xl">
-        We build general-purpose artificial intelligence systems and develop tools that help people be more productive.
+        We build general-purpose artificial intelligence systems and develop tools that help people
+        be more productive.
       </p>
       <p className="mt-6 text-lg text-gray-600 max-w-2xl">
-        We build general-purpose artificial intelligence systems and develop tools that help people be more productive.
+        We build general-purpose artificial intelligence systems and develop tools that help people
+        be more productive.
       </p>
       <p className="mt-6 text-lg text-gray-600 max-w-2xl">
-        We build general-purpose artificial intelligence systems and develop tools that help people be more productive.
+        We build general-purpose artificial intelligence systems and develop tools that help people
+        be more productive.
       </p>
 
       <button className="mt-10 px-8 py-4 rounded-full bg-black text-white text-lg hover:opacity-80 transition">

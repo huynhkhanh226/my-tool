@@ -1,18 +1,10 @@
 "use client";
-import {
-  createContext,
-  useContext,
-  ReactNode,
-  useEffect,
-  useState,
-} from "react";
+import { createContext, useContext, ReactNode, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../store/store";
 import { useUser } from "../store/user/useUser";
 import { fetchUserProfile } from "../store/user";
 import { User } from "../store/user/user.types";
-import { useRouter } from "next/navigation";
-import { isTokenNearExpiry } from "../utils/jwt";
 
 type AuthContextType = {
   user: User | null;
@@ -25,13 +17,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const { user } = useUser();
   useEffect(() => {
     dispatch(fetchUserProfile({}));
-  }, []);
+  }, [dispatch]);
 
-  return (
-    <AuthContext.Provider value={{ user }}>
-      {children}
-    </AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={{ user }}>{children}</AuthContext.Provider>;
 };
 
 // Defined hook

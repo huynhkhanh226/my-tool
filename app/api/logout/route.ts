@@ -1,6 +1,6 @@
 // app/api/auth/logout/route.ts
-import { cookies } from 'next/headers';
-import { NextRequest, NextResponse } from 'next/server';
+// import { cookies } from "next/headers";
+import { NextResponse } from "next/server";
 
 export async function POST() {
   // // Gửi request sang backend để xoá cookie
@@ -13,10 +13,7 @@ export async function POST() {
   // });
 
   // return new Response('Logged out', { status: res.status });
-  const res = NextResponse.json(
-    { message: "Logged out" },
-    { status: 200 }
-  );
+  const res = NextResponse.json({ message: "Logged out" }, { status: 200 });
 
   res.cookies.set({
     name: "my_session",
@@ -25,7 +22,7 @@ export async function POST() {
     secure: true,
     sameSite: "lax",
     path: "/",
-    maxAge: 0,        // ❗ hủy cookie ngay lập tức
+    maxAge: 0, // ❗ hủy cookie ngay lập tức
   });
 
   return res;

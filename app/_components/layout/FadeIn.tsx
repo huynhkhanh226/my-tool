@@ -17,7 +17,7 @@ export default function FadeIn({
       (entries) => {
         if (entries[0].isIntersecting) setVisible(true);
       },
-      { threshold: 0.2 }
+      { threshold: 0.2 },
     );
     obs.observe(ref.current!);
     return () => obs.disconnect();
