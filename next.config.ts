@@ -6,6 +6,10 @@ const nextConfig: NextConfig = {
   sassOptions: {
     implementation: "sass-embedded",
   },
+  i18n: {
+    locales: ["en", "ja"],
+    defaultLocale: "en",
+  },
 };
 
 export default nextConfig;

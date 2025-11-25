@@ -4,7 +4,7 @@ import Link from "next/link";
 //import { Metadata } from "next";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
-import { LoginButton } from "../_components/LoginButton";
+import { LoginButton } from "../../_components/LoginButton";
 
 // export const metadata: Metadata = {
 //   title: "Sign In Page | Free Next.js Template for Startup and SaaS",

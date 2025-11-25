@@ -1,9 +1,9 @@
 "use client";
 // import { Metadata } from "next";
-import { LogoutButton } from "../_components/LogoutButton";
-import { useAuth } from "../_libs/providers/AuthContext";
-import FadeIn from "../_components/layout/FadeIn";
-import PageContainer from "../_components/layout/PageContainer";
+import { LogoutButton } from "../../_components/LogoutButton";
+import { useAuth } from "../../_libs/providers/AuthContext";
+import FadeIn from "../../_components/layout/FadeIn";
+import PageContainer from "../../_components/layout/PageContainer";
 
 // export const metadata: Metadata = {
 //   title: "Free Next.js Template for Startup and SaaS",
