@@ -1,7 +1,7 @@
 // lib/actions/getProfile.ts
 "use server";
 
-import { fetchWithAuth } from "../../api/fetchWithAuth";
+import { fetchWithAuth } from "@/lib/api/fetchWithAuth";
 
 export async function getProfile() {
   const res = await fetchWithAuth(`/api/user`, {

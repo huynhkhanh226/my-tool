@@ -1,10 +1,9 @@
 "use client";
 import { createContext, useContext, ReactNode, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { AppDispatch } from "../store/store";
-import { useUser } from "../store/user/useUser";
-import { fetchUserProfile } from "../store/user";
-import { User } from "../store/user/user.types";
+import { AppDispatch } from "@/store";
+import { fetchUserProfile, useUser } from "@/store/user";
+import { User } from "@/store/user/user.types";
 
 type AuthContextType = {
   user: User | null;
@@ -17,7 +16,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const { user } = useUser();
   useEffect(() => {
     dispatch(fetchUserProfile({}));
-  }, [dispatch]);
+  }, []);
 
   return <AuthContext.Provider value={{ user }}>{children}</AuthContext.Provider>;
 };

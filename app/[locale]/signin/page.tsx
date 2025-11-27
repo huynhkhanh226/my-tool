@@ -4,7 +4,8 @@ import Link from "next/link";
 //import { Metadata } from "next";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
-import { LoginButton } from "../../_components/LoginButton";
+import { LoginButton } from "../../../components/LoginButton";
+import { useTranslations } from "next-intl";
 
 // export const metadata: Metadata = {
 //   title: "Sign In Page | Free Next.js Template for Startup and SaaS",
@@ -13,6 +14,8 @@ import { LoginButton } from "../../_components/LoginButton";
 // };
 
 const SigninPage = () => {
+  const t = useTranslations();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -50,7 +53,7 @@ const SigninPage = () => {
             <div className="w-full px-4">
               <div className="shadow-three dark:bg-dark mx-auto max-w-[500px] rounded-sm bg-white px-6 py-10 sm:p-[60px]">
                 <h3 className="mb-3 text-center text-2xl font-bold text-black sm:text-3xl dark:text-white">
-                  Đăng nhập vào tài khoản của bạn
+                  {t("hello")}
                 </h3>
                 <LoginButton />
                 <form onSubmit={handleSubmit}>

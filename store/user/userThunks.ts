@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { getUserProfile } from "./user.api";
 import { USER_GET_PROFILE } from "./user.types";
-import { ThunkAPIConfig } from "@/app/_types/thunk";
+import { ThunkAPIConfig } from "@/types/thunk";
 
 // export const fetchUserProfile = createAsyncThunk(
 //   USER_GET_PROFILE,
@@ -25,12 +26,11 @@ export type Args = {
 
 export const fetchUserProfile = createAsyncThunk<UserProfile, Args, ThunkAPIConfig<string>>(
   USER_GET_PROFILE,
-  async (args, thunkAPI) => {
+  async (args, thunkAPI: any) => {
     try {
-      const data = await getUserProfile();
+      const data = await getUserProfile<UserProfile>();
       args.onSuccess?.(data);
-      return data.user || null;
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      return data || null;
     } catch (err: any) {
       const msg = err?.message || "Lỗi không xác định";
       args.onError?.(msg);

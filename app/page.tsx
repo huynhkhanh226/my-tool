@@ -1,8 +1,8 @@
 import { Metadata } from "next";
-import PageContainer from "./_components/layout/PageContainer";
-import Hero from "./_components/layout/Hero";
-import FadeIn from "./_components/layout/FadeIn";
-import { LoginButton } from "./_components/LoginButton";
+import PageContainer from "../components/layout/PageContainer";
+import Hero from "../components/layout/Hero";
+import FadeIn from "../components/layout/FadeIn";
+import { LoginButton } from "../components/LoginButton";
 
 export const metadata: Metadata = {
   title: "Free Next.js Template for Startup and SaaS",

@@ -1,4 +1,4 @@
-import { AppDispatch, RootState } from "../_libs/store/store";
+import { AppDispatch, RootState } from "../../libs/store/store";
 
 export type ThunkAPIConfig<RejectType = unknown> = {
   dispatch: AppDispatch;

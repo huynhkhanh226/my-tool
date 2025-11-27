@@ -53,7 +53,6 @@ export async function fetchWithAuth<T = unknown>(
       if (contentType && contentType.includes("application/json")) {
         return (await res.json()) as T; // ⚡ TypeScript biết kiểu trả về
       }
-
       return res; // raw Response nếu không JSON
     } catch (err) {
       console.warn(`Network error, retrying ${attempt}/${retry}...`, err);

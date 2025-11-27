@@ -30,49 +30,34 @@
 //   matcher: ["/", "/user"], // Chỉ áp dụng cho những route này
 // };
 // middleware.ts
-import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
 
-const PUBLIC_FILE = /\.(.*)$/;
-const LOCALES = ["en", "vi"];
+import createMiddleware from "next-intl/middleware";
+import { NextRequest } from "next/server";
+import { routing } from "./i18n/routing";
 
-export async function proxy(req: NextRequest) {
-  const { pathname } = req.nextUrl;
+export default async function proxy(request: NextRequest) {
+  // 1. Ưu tiên locale trong cookie
+  const cookieLocale = request.cookies.get("locale")?.value;
 
-  // 1️⃣ Skip api, static files, public files
-  if (pathname.startsWith("/api") || PUBLIC_FILE.test(pathname)) {
-    return NextResponse.next();
-  }
+  // 2. Nếu không có cookie → lấy từ header → cuối cùng default = 'en'
+  const defaultLocale = cookieLocale || request.headers.get("x-your-custom-locale") || "en";
 
-  // 2️⃣ i18n: check if locale is in path
-  const pathSegments = pathname.split("/");
-  let locale = LOCALES.includes(pathSegments[1]) ? pathSegments[1] : "en";
+  // 3. Khởi tạo middleware next-intl
+  const handleI18nRouting = createMiddleware({
+    ...routing,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    defaultLocale: defaultLocale as any,
+  });
 
-  if (!locale) {
-    console.log("locale", pathSegments);
-    // Detect from Accept-Language
-    const acceptLang = req.headers.get("accept-language") || "";
-    locale = acceptLang.startsWith("vi") ? "vi" : "en";
-    return NextResponse.redirect(new URL(`/${locale}${pathname}`, req.url));
-  }
+  // 4. Gọi middleware
+  const response = handleI18nRouting(request);
 
-  // 3️⃣ Session check: ví dụ cookie 'session_token'
-  const sessionToken = req.cookies.get("my_session")?.value;
-  const isAuthPage = pathname.startsWith(`/${locale}/login`);
+  // 5. Ghi lại locale vào response header (optional)
+  response.headers.set("x-your-custom-locale", defaultLocale);
 
-  // Nếu chưa login và không phải trang login → redirect
-  if (!sessionToken && !isAuthPage) {
-    return NextResponse.redirect(new URL(`/${locale}/login`, req.url));
-  }
-
-  // Nếu đã login mà đang ở login page → redirect về home
-  if (sessionToken && isAuthPage) {
-    return NextResponse.redirect(new URL(`/${locale}/`, req.url));
-  }
-
-  return NextResponse.next();
+  return response;
 }
 
 export const config = {
-  matcher: ["/", "/user"], // Chỉ áp dụng cho những route này
+  matcher: "/((?!api|trpc|_next|_vercel|.*\\..*).*)",
 };

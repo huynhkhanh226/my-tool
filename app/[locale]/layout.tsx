@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 // import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import "./_styles/globals.scss";
-import { TemplateProvider } from "../_libs/providers/CustomThemeProvider";
-import { ReduxProvider } from "../_libs/providers/ReduxProvider";
-import { AuthProvider } from "../_libs/providers/AuthContext";
-import Sidebar from "../_components/layout/Sidebar";
-import Header from "../_components/layout/Header";
-import { NextIntlProvider } from "next-intl";
+import "../globals.css";
+import "../../styles/globals.scss";
+import { TemplateProvider } from "../../context/CustomThemeProvider";
+import { ReduxProvider } from "../../context/ReduxProvider";
+import { AuthProvider } from "../../context/AuthContext";
+import { NextIntlClientProvider, hasLocale } from "next-intl";
+import { notFound } from "next/navigation";
+import { routing } from "../../i18n/routing";
+import { setRequestLocale } from "next-intl/server";
 
 // import { Inter } from "next/font/google";
 // const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -41,25 +42,31 @@ interface Props {
 
 export const dynamicParams = true; // Cho phép dynamic routes
 
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
 export default async function RootLayout({ children, params }: Props) {
-  let locale = params.locale;
-  // Nếu locale không hợp lệ, fallback
-  if (!["en", "vi"].includes(locale)) {
-    locale = "en";
+  const { locale } = await params;
+  console.log("Layout", locale);
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
   }
-  // Load messages từ JSON
-  const messages = await import(`./_libs/locales/${locale}.json`).then((m) => m.default);
+
+  // Enable static rendering
+  setRequestLocale(locale);
+
+  const messages = (await import(`../../i18n/message/${locale}.json`)).default;
+
   return (
     <html lang="en">
       <body className={`antialiased bg-white text-black font-sans`}>
         <ReduxProvider>
           <AuthProvider>
             <TemplateProvider>
-              <Sidebar />
-              <Header />
-              <NextIntlProvider messages={messages} locale={locale} defaultLocale="en">
+              <NextIntlClientProvider locale={locale} messages={messages}>
                 {children}
-              </NextIntlProvider>
+              </NextIntlClientProvider>
             </TemplateProvider>
           </AuthProvider>
         </ReduxProvider>
