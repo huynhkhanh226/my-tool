@@ -4,6 +4,7 @@ import { useAuth } from "@/context/AuthContext";
 import { LogoutButton } from "../../../components/LogoutButton";
 import FadeIn from "../../../components/layout/FadeIn";
 import PageContainer from "../../../components/layout/PageContainer";
+import ScrollTable from "@/components/ScrollTable";
 
 // export const metadata: Metadata = {
 //   title: "Free Next.js Template for Startup and SaaS",
@@ -20,6 +21,7 @@ export default function User() {
       <FadeIn delay={100}>
         <h1>This is Content {user?.name}</h1>
         <LogoutButton />
+        <ScrollTable />
       </FadeIn>
     </PageContainer>
   );
